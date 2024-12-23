@@ -17,7 +17,7 @@ LIB_DIR:=.
 export LIB_DIR
 
 # Default lib module to setup. Can be overriden by the user.
-CORE ?=iob_ctls
+CORE ?=fatori_v
 
 
 all: sim-test
