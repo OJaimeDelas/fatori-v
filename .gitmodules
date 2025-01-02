@@ -1,1 +1,4 @@
 
+[submodule "submodules/iob-ibex"]
+	path = submodules/iob-ibex
+	url = https://github.com/OJaimeDelas/iob-ibex.git
