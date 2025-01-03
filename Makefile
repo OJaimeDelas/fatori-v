@@ -4,7 +4,7 @@
 
 CORE := iob_system
 
-SIMULATOR ?= icarus
+SIMULATOR ?= xcelium
 SYNTHESIZER ?= yosys
 BOARD ?= cyclonev_gt_dk
 

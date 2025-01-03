@@ -2,3 +2,6 @@
 [submodule "submodules/iob-ibex"]
 	path = submodules/iob-ibex
 	url = https://github.com/OJaimeDelas/iob-ibex.git
+[submodule "submodules/iob-vexriscv"]
+	path = submodules/iob-vexriscv
+	url = git@github.com:IObundle/iob-vexriscv.git

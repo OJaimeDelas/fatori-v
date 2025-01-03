@@ -342,7 +342,7 @@ def setup(py_params_dict):
         ]
     attributes_dict["subblocks"] = [
         {
-            "core_name": "iob_vexriscv",
+            "core_name": "iob_ibex",
             "instance_name": "cpu",
             "instance_description": "RISC-V CPU instance",
             "parameters": {
@@ -371,15 +371,6 @@ def setup(py_params_dict):
                         "cpu_d_axi_awid[0]",
                         "cpu_d_axi_bid[0]",
                     ],
-                ),
-                "plic_interrupts_i": "interrupts",
-                "plic_cbus_s": (
-                    "plic_cbus",
-                    ["plic_cbus_iob_addr[22-2-1:0]"],
-                ),
-                "clint_cbus_s": (
-                    "clint_cbus",
-                    ["clint_cbus_iob_addr[16-2-1:0]"],
                 ),
             },
         },
