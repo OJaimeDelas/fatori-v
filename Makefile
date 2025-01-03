@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: MIT
 
-CORE := iob_ibex
+CORE := iob_system
 
 SIMULATOR ?= icarus
 SYNTHESIZER ?= yosys
