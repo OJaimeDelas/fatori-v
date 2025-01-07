@@ -21,10 +21,13 @@ VHDR+=$(wildcard ./src/*.vh)
 VSRC+=$(wildcard ./src/*.v)
 
 ifeq ($(SYN),)
+#@echo "Esta aqui"
 #include the module's headers and sources
 VHDR+=$(wildcard ../src/*.vh)
+VSRC+=$(wildcard ../src/*_pkg.sv)
+VSRC+=$(filter-out ../src/*_pkg.sv, $(wildcard ../src/*.sv))
 VSRC+=$(wildcard ../src/*.v)
-VSRC+=$(filter-out ../src/ibex_pkg.sv, $(wildcard ../src/*.sv))
+#VSRC+=$(filter-out ../src/ibex_pkg.sv, $(wildcard ../src/*.sv))
 VHDR+=$(wildcard ../common_src/*.vh)
 VSRC+=$(wildcard ../common_src/*.v)
 else
