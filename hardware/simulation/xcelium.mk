@@ -10,7 +10,7 @@ SIM_SYNC_FLAGS=$(CADENCE_SYNC_FLAGS)
 
 COV_TEST?=test
 
-#VCD=1
+VCD=1
 
 SFLAGS = -errormax 15 -status -licqueue
 EFLAGS = $(SFLAGS) -access +wc

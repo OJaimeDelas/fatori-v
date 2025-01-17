@@ -9,7 +9,7 @@ SHELL:=bash
 include ../../config_build.mk
 
 #default simulator
-SIMULATOR ?=icarus
+SIMULATOR ?=xcelium
 
 
 REMOTE_BUILD_DIR=$(USER)/$(BUILD_DIR_NAME)
@@ -24,8 +24,10 @@ ifeq ($(SYN),)
 #@echo "Esta aqui"
 #include the module's headers and sources
 VHDR+=$(wildcard ../src/*.vh)
-VSRC+=$(wildcard ../src/*_pkg.sv)
-VSRC+=$(filter-out ../src/*_pkg.sv, $(wildcard ../src/*.sv))
+PCKS+=$(wildcard ../src/*_pkg.sv)
+VSRC+=$(PCKS)
+SVRC+=$(wildcard ../src/*.sv)
+VSRC+=$(filter-out $(PCKS), $(SVRC))
 VSRC+=$(wildcard ../src/*.v)
 #VSRC+=$(filter-out ../src/ibex_pkg.sv, $(wildcard ../src/*.sv))
 VHDR+=$(wildcard ../common_src/*.vh)
