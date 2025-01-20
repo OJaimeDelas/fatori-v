@@ -75,11 +75,11 @@ module iob_system_tb;
       rxread_reg  = 0;
       txread_reg  = 0;
 
-
+      #1000
       cnsl2soc_fd = $fopen("cnsl2soc", "r");
-      while (!cnsl2soc_fd) begin
-         $display("Could not open \"cnsl2soc\"");
-         cnsl2soc_fd = $fopen("cnsl2soc", "r");
+      while (!cnsl2soc_fd) begin: cnsl2soc
+         //$display("Could not open \"cnsl2soc\"");
+         //cnsl2soc_fd = $fopen("cnsl2soc", "r");
       end
       $fclose(cnsl2soc_fd);
       soc2cnsl_fd = $fopen("soc2cnsl", "w");
