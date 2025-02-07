@@ -15,6 +15,7 @@
 module iob_system_tb;
 
    parameter realtime CLK_PER = 1s / `FREQ;
+   //parameter realtime CLK_PER = 1ps;
 
    localparam ADDR_W = `IOB_SYSTEM_ADDR_W;
    localparam DATA_W = `IOB_SYSTEM_DATA_W;
@@ -25,7 +26,7 @@ module iob_system_tb;
    always #(CLK_PER / 2) clk = ~clk;
 
    //reset
-   reg       arst = 0;
+   reg       arst =  ~`IOB_SYSTEM_RST_POL;
 
    //received by getchar
    reg       rxread_reg;
@@ -52,6 +53,8 @@ module iob_system_tb;
    //
    initial begin
 
+      $assertoff();
+
 `ifdef VCD
       $dumpfile("uut.vcd");
       $dumpvars();
@@ -63,7 +66,7 @@ module iob_system_tb;
 
       //reset system
       arst        = ~`IOB_SYSTEM_RST_POL;
-      #100 arst = `IOB_SYSTEM_RST_POL;
+      #100 arst =  `IOB_SYSTEM_RST_POL;
       #1_000 arst = ~`IOB_SYSTEM_RST_POL;
       #100;
       @(posedge clk) #1;
@@ -74,12 +77,13 @@ module iob_system_tb;
       cpu_char    = 0;
       rxread_reg  = 0;
       txread_reg  = 0;
+      $display("Variables set");
 
       #1000
       cnsl2soc_fd = $fopen("cnsl2soc", "r");
       while (!cnsl2soc_fd) begin: cnsl2soc
-         //$display("Could not open \"cnsl2soc\"");
-         //cnsl2soc_fd = $fopen("cnsl2soc", "r");
+         $display("Could not open \"cnsl2soc\"");
+         cnsl2soc_fd = $fopen("cnsl2soc", "r");
       end
       $fclose(cnsl2soc_fd);
       soc2cnsl_fd = $fopen("soc2cnsl", "w");

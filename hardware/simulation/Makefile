@@ -101,9 +101,9 @@ ifeq ($(COV),1)
 	sleep 1 && sync && scp $(SIM_SCP_FLAGS) $(SIM_USER)@$(SIM_SERVER):$(REMOTE_SIM_DIR)/coverage_report_detail.rpt .
 endif
 endif
-ifeq ($(VCD),1)
-	make waves
-endif
+# ifeq ($(VCD),1)
+# 	make waves
+# endif
 
 
 
