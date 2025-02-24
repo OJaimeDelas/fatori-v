@@ -154,7 +154,7 @@ def setup(py_params_dict):
             "name": "clk_en_rst_s",
             "descr": "Clock, clock enable and reset",
             "signals": {
-                "type": "clk_en_rst",
+                "type": "iob_clk",
             },
         },
         {
@@ -375,7 +375,7 @@ def setup(py_params_dict):
             },
         },
         {
-            "core_name": "iob_axi_interconnect2",
+            "core_name": "iob_axi_interconnect",
             "name": params["name"] + "_axi_interconnect",
             "instance_name": "iob_axi_interconnect",
             "instance_description": "AXI interconnect instance",
